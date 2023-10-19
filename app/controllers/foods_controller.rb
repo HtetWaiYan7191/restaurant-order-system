@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, except: [:splash]
   def index
   end
 
@@ -9,5 +10,8 @@ class FoodsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def splash
   end
 end
