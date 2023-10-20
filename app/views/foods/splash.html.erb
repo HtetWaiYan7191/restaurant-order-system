@@ -1,1 +1,13 @@
-<h2>Splash Page</h2>
+<section class="splash-section d-flex justify-content-center align-items-center">
+    <div class="splash-container d-flex flex-column align-items-end justify-content-between">
+        <figure class="logo-container">
+            <img src="./assets/foodpanda.png" width="300px">
+            <h2 class="text-center text-secondary">Welcome to Food panda</h2>
+        </figure>
+        <div class="link-container w-100 d-flex justify-content-center">
+            <%= link_to 'LOG IN', new_user_session_path, class: 'btn btn-primary text-white me-3'%>
+            <%= link_to 'SIGN UP', new_user_registration_path, class: 'btn btn-primary text-white'%>
+        </div>
+       
+    </div>
+</section>
