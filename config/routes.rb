@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  
+  get '/sign_out_user', to: 'users#sign_out_user', as: 'sign_out_user'
   devise_for :users
   authenticated :user do
-    root "foods#index", as: :authenticated_root
+    root "shops#index", as: :authenticated_root
   end
 
   unauthenticated do 
@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :foods, only: %i[index new create destroy]
+  resources :shops, only: %i[index show new create destroy]
 end
