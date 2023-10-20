@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+ }
+
+ :root {
+    --primary-color: rgb(215, 15, 100)
+ }
+
+ .pink {
+    color: var(--primary-color);
+ }
+
+ .bg-pink {
+    background-color: var(--primary-color);
+ }
+
+ .splash-section {
+   height: 100vh;
+ }
+
+ .splash-container {
+   height: 20vh;
+ }
