@@ -1,3 +1,18 @@
-<%= render 'shared/navbar'%>
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+<%= render 'shared/navbar', back: true%>
+<h2 class="text-center p-3">Shops</h2>
+<% @shops.each do |shop| %>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+  <%= link_to shop_path(id: shop.id), class:'text-decoration-none' do%>
+   <div class="card mx-auto" style="width: 18rem;">
+  <img src=<%= shop.image %> class="card-img-top" alt="...">
+  <div class="card-body">
+    <h2 class="card-text text-uppercase"><%= shop.name %></h2>
+    <span class="text-capitalize"><%= shop.city %></span>
+  </div>
+</div>
+<% end %>
+  </div>
+
+</div>
+<% end %>

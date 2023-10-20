@@ -1,2 +1,61 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+<%= render 'shared/navbar', back: false%>
+<section class="food-section">
+    <div class="food-container">
+        <header class="food-header d-flex p-4 align-items-center">
+            <img src=<%= @shop.image%> alt="header-img" width="70px" class="me-4">
+            <h2 class="text-uppercase text-white"><%= @shop.name %></h2>
+        </header>
+
+        <div class="title-container p-4">
+            <div class="d-flex justify-content-between">
+                <h1><i class="fas fa-fire text-danger me-2"></i>Popular</h1>
+                <%= form_tag(shop_foods_path(shop_id: @shop.id), method: 'get', remote: true) do %>
+                <%= select_tag :category_id, options_from_collection_for_select(@categories, 'id', 'name'), include_blank: 'All Categories', class: 'p-1 text-capitalize' %>
+                <%= submit_tag 'Filter', class: 'btn my-btn text-white bg-pink rounded' %>
+                <% end %>
+
+            </div>
+            <span class="text-secondary">Most order right now.</span>
+        </div>
+
+        <div class="food-container row row-cols-2 row-cols-md-4 row-cols-md-6 gy-5 px-4">
+        <% @foods.each do |food|%>
+            <div class="col food-card">
+                    <img src=<%= food.image %> class="card-img-top rounded" alt="...">
+                    <div class="card-body d-flex  align-items-center justify-content-between">
+                        <h6 class="card-text text-uppercase mb-0 p-2 fw-bold"><%= food.name %></h6>
+                        <span class="text-capitalize text-secondary fw-semibold">$<%= food.price %></span>
+                    </div>
+                    <div class="button container p-0 mt-2 d-flex justify-content-between">
+                        <button class=" bg-pink text-white btn my-btn">Add Cart</button>
+                        <button type="button" class="btn my-btn text-white bg-pink rounded-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class ="fas fa-info"></i>
+                        </button>
+
+                        <%# Model %>
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header bg-light-pink text-white">
+                            <h1 class="modal-title text-uppercase  fs-5" id="exampleModalLabel"><%= food.name %></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-0">
+                           <img src=<%= food.image%> width="100%">
+                           <p class="mt-2 text-secondary px-3 py-1"><%= food.description %></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button class=" bg-pink text-white btn my-btn" type="button">Add Cart</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+            </div>
+           
+        <% end %>
+        </div>
+    </div>
+</section>
+

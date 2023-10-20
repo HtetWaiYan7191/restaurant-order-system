@@ -1,6 +1,12 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary  ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><%= current_user.name %></a>
+  <% if back%>
+        <a class="navbar-brand text-uppercase text-primary bold" href="#"><%= current_user.name %></a>
+  <% else %>
+        <%= link_to("javascript:history.back()", class: "text-dark") do %>
+            <i class="fas fa-angle-left h2 mb-0 " ></i>
+        <% end %>
+  <% end %>
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon text-white"></span>
     </button>
