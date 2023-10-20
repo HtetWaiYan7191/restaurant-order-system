@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root 'foods#splash', as: :unauthenticated_root
   end
 
-  resources :foods, only: %i[index new create destroy]
-  resources :shops, only: %i[index show new create destroy]
+  resources :shops, only: %i[index show new create destroy] do
+    resources :foods, only: %i[index new create destroy]
+  end
 end
