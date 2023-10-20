@@ -20,12 +20,20 @@
     padding: 0;
  }
 
+ body {
+   background-color: rgb(254, 254, 254);
+ }
+
  :root {
     --primary-color: rgb(215, 15, 100)
  }
 
  .pink {
     color: var(--primary-color);
+ }
+
+ .bg-light-pink {
+   background-color: rgba(215, 15, 100, 0.9);
  }
 
  .bg-pink {
@@ -38,4 +46,24 @@
 
  .splash-container {
    height: 20vh;
+ }
+
+ .food-header {
+   background-color: var(--primary-color);
+ }
+
+ .my-btn {
+   font-size: small;
+ }
+
+ .my-btn:hover {
+   background-color: rgba(215, 15, 100, 0.8) !important;
+ }
+
+ .my-btn:active {
+   background-color: rgb(199, 13, 90) !important;
+ }
+
+ .btn-close {
+   color: white !important;
  }
